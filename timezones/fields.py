@@ -40,7 +40,8 @@ class TimeZoneField(models.CharField):
         value = super(TimeZoneField, self).to_python(value)
         if value is None:
             return None # null=True
-        return coerce_timezone_value(value)
+        return value
+        #return coerce_timezone_value(value)
     
     def get_prep_value(self, value):
         if value is not None:
